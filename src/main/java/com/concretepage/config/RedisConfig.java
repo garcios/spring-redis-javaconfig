@@ -7,6 +7,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.GenericToStringSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.concretepage.bean.Person;
 
@@ -32,6 +34,8 @@ public class RedisConfig {
 	@Bean
 	public RedisTemplate<String, Person> redisTemplate() {
 		RedisTemplate<String, Person> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new JsonRedisSerializer());
 		redisTemplate.setConnectionFactory(redisConnectionFactory());
 		redisTemplate.setEnableTransactionSupport(true);
 		return redisTemplate;

@@ -22,9 +22,9 @@ public class Main {
        Person p2 = new Person(2, "Krishna", 35);
        friendDAO.addFriend(p2);
 	   System.out.println("Number of friends: " + friendDAO.getNumberOfFriends());
-       System.out.println(friendDAO.getFriendAtIndex(1));
-       friendDAO.removeFriend(p2);
-       System.out.println(friendDAO.getFriendAtIndex(1)); //It will return null, because value is deleted.  
+      // System.out.println(friendDAO.getFriendAtIndex(1));
+      // friendDAO.removeFriend(p2);
+      // System.out.println(friendDAO.getFriendAtIndex(1)); //It will return null, because value is deleted.  
 
        /*
 	   System.out.println("--Example of SetOperations--");
